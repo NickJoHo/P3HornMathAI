@@ -3,13 +3,13 @@
 public class Move : MonoBehaviour {
 
     public GameObject goal;
-
+    Vector3 direction;
     void Start() {
-
-        this.transform.Translate(6, 0, 2);
+        direction = goal.transform.position - transform.position;
+        
     }
 
-    private void Update() {
-
+    private void LateUpdate() {
+        this.transform.position = this.transform.position + direction.normalized;
     }
 }
